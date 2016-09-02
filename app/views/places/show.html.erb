@@ -5,18 +5,17 @@
 	<p><%= @place.description %></p>
 
 <style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
       #map {
         height: 300px;
       }
     </style>
 
-	</head>
-	  <body>
-	    <div id="map"></div>
-
 	<% if @place.latitude.present? && @place.longitude.present? %>
-
-	<div id="map"></div>
 
 	  <script>
 
@@ -39,6 +38,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5iwENvro4vExB94mioDapgq38vpC3h5o&callback=initMap">
     </script>
 
+	<div id="map"></div>
 <% end %>
 
 <br />
@@ -48,21 +48,10 @@
 			<%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
 			<%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
 		<% end %>
-
+		</div>
 	</div>
-	<div class="clear"></div>
-		<%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-			<%= f.input :message %>
-			<%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-			<%= f.submit "Add a Comment", class: 'btn btn-primary' %>
-		<% end %>
 
-		<!-- Button trigger modal -->
-		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		  Add a comment
-		</button>
-
-		<!-- Modal -->
+			<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -85,17 +74,17 @@
 		  </div>
 		</div>
 
-</div>
+<div class="col-xs-10 col-xs-offset-1">
+	<h1 class="pull-left">Comments</h1>
+	<!-- Button trigger modal -->
 
-<h1>Comments</h1>
+<div class="clear"></div>
 
 <% @place.comments.each do |comment| %>
-	<div>
+	<div class="col-xs-12 col-sm-6">
 		<blockquote>
-			<% if comment.humanized_rating.present? %>
-			<b><%= comment.humanized_rating %></b> -
-				<% end %>
-				<%= comment.message %>
+			<b><%= comment.rating %></b> -
+        <%= comment.message %>
 			<small><%= comment.user.email %></small>
 		</blockquote>
 	</div>
