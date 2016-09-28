@@ -51,6 +51,11 @@
 		</div>
 	</div>
 
+	<% @place.photos.each do |photo| %>
+	  <%= image_tag photo.picture, class: "user_image" %>
+	  <%= photo.caption %>
+	<% end %>
+
 	<!-- Photo Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
