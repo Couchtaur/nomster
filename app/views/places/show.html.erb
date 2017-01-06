@@ -108,6 +108,30 @@
 		  </div>
 		</div>
 
+		<div class="booyah-box col-xs-10 col-xs-offset-1">
+			<h1 class="pull-left">Photos</h1>
+
+			<!-- Photo button trigger modal -->
+		<div class="btn pull-right">
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+			  Add photo
+			</button>
+		</div>
+
+		<% @place.photos.each do |photo| %>
+			<div class="col-xs-12 col-sm-6">
+				<blockquote>
+					<% if photo.present? %>
+		      <b><%= image_tag photo.picture %></b> -
+		    <% end %>
+		        <%= photo.caption %>
+					<small><%# photo.user.email %></small>
+				</blockquote>
+			</div>
+		<% end %>
+</div>
+
+
 <div class="col-xs-10 col-xs-offset-1">
 	<h1 class="pull-left">Comments</h1>
 
@@ -129,28 +153,6 @@
       <b><%= comment.humanized_rating %></b> -
     <% end %>
         <%= comment.message %>
-			<small><%= comment.user.email %></small>
-		</blockquote>
-	</div>
-<% end %>
-
-<div class="col-xs-12 col-xs-offset-1">
-	<h1 class="pull-left">Photos</h1>
-
-	<!-- Photo button trigger modal -->
-<div class="btn pull-right">
-	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
-	  Add photo
-	</button>
-</div>
-
-<% @place.photos.each do |photo| %>
-	<div class="col-xs-12 col-sm-6">
-		<blockquote>
-			<% if photo.present? %>
-      <b><%= photo.all %></b> -
-    <% end %>
-        <%= photo.caption %>
 			<small><%= comment.user.email %></small>
 		</blockquote>
 	</div>
