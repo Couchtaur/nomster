@@ -4,6 +4,15 @@
 		<i><%= place.address %></i><br /><br />
 		<p><%= place.description %></p><br />
 
+		<% if place.photos.present? %>
+			<div class="col-xs-12">
+				<blockquote>
+					<% if place.photos.last.picture.present? %>
+					<%= place.photos.last.picture %>
+				<% end %>
+				</blockquote>
+			</div>
+
 		<% if place.user.present? %>
 			<small><%= place.user.email %></small>
 		<% end %>
@@ -27,3 +36,4 @@
   <div class="row">
   <%= paginate @places %>
 </div>
+<% end %>
