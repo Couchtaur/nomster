@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,3 +47,4 @@ gem 'devise', '3.2.4'
 gem 'geocoder', '1.3.4'
 gem 'figaro', '>= 1.0.0'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'fog'
