@@ -7,8 +7,8 @@
 		<% if place.photos.present? %>
 			<div class="col-xs-12">
 				<blockquote>
-					<% if place.photos.last.picture.present? %>
-					<%= place.photos.last.picture %>
+					<% if place.photos.present? %>
+					<%= image_tag place.photos %>
 				<% end %>
 				</blockquote>
 			</div>
