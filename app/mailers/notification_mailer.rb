@@ -1,3 +1,9 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "no-reply@nomsterapp.com"
+
+  def comment_added
+    mail(to: "marshika.szabo@gmail.com",
+          subject: "A comment has been added to your place")
+  end
+
 end
