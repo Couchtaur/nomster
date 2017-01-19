@@ -12,25 +12,25 @@
     <div class="item active">
       <%= image_tag 'slider1.jpg', class: 'img-responsive' %>
       <div class="carousel-caption">
-        Find the best food ever
+        Deliciousness awaits.
       </div>
     </div>
 		<div class="item">
       <%= image_tag 'slider2.jpg', class: 'img-responsive' %>
       <div class="carousel-caption">
-        Yay food
+        Find the best food.
       </div>
 			</div>
 			<div class="item">
 	      <%= image_tag 'slider3.jpg', class: 'img-responsive' %>
 	      <div class="carousel-caption">
-	        Om nom.
+	        Om nom nom!
 	      </div>
 				</div>
 				<div class="item">
 		      <%= image_tag 'slider4.jpg', class: 'img-responsive' %>
 		      <div class="carousel-caption">
-		        Slurp!
+		        Enjoy every meal.
 		      </div>
 					</div>
   </div>
@@ -51,19 +51,17 @@
 		<p><%= place.description %></p><br />
 
 		<% if place.photos.present? %>
-			<div class="col-xs-12">
-				<blockquote>
+			<div class="col-xs-6">
 					<%= image_tag place.photos.first.picture %>
-				</blockquote>
 			</div>
 		<% end %>
 
 		<% if place.user.present? %>
-			<small><%= place.user.email %></small>
+			<small><%# place.user.email %></small>
 		<% end %>
 
 	<% if place.comments.present? %>
-		<div class="col-xs-12">
+		<div class="col-xs-6">
 			<blockquote>
 				<% if place.comments.last.humanized_rating.present? %>
 	      <b><%= place.comments.last.humanized_rating %></b> -
@@ -74,7 +72,7 @@
 		</div>
 		<% end %>
 </div>
-</div>
+
 <% end %>
 
 <div class="container">
