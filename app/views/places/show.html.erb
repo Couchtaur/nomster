@@ -58,6 +58,7 @@
 				<div class="modal-body">
 					<%= f.input :picture %>
 					<%= f.input :caption %>
+					<%= f.input :place_id, :as => :hidden, :input_html => { :value => @place.id } %>
 				</div>
 
 			<div class="modal-footer">
