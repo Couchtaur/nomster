@@ -50,18 +50,19 @@
 		<i><%= place.address %></i><br /><br />
 		<p><%= place.description %></p><br />
 
+    <div class="img-responsive">
 		<% if place.photos.present? %>
-			<div class="col-xs-6">
 					<%= image_tag place.photos.first.picture %>
-			</div>
+      </div>
 		<% end %>
 
 		<% if place.user.present? %>
 			<small><%# place.user.email %></small>
 		<% end %>
 
-	<% if place.comments.present? %>
-		<div class="col-xs-6">
+
+	     <% if place.comments.present? %>
+       <div class="col-xs-6" "img-responsive">
 			<blockquote>
 				<% if place.comments.last.humanized_rating.present? %>
 	      <b><%= place.comments.last.humanized_rating %></b> -
@@ -69,7 +70,7 @@
 	        <%= place.comments.last.message %>
 				<small><%= place.comments.last.user.email %></small>
 			</blockquote>
-		</div>
+    </div>
 		<% end %>
 </div>
 
